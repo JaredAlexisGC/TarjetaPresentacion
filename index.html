@@ -8,25 +8,17 @@
     <body style='margin : 0px; overflow: hidden;'>
         <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
             
-            <!-- Aquí cargamos los recursos (el video) -->
             <a-assets>
-                <!-- Es importante incluir 'playsinline' y 'webkit-playsinline' para que funcione en móviles -->
-                <!-- 'muted' ayuda a que el video pueda reproducirse automáticamente en la mayoría de los navegadores -->
-                <video id="miVideo" src="Presentacion.mp4" autoplay loop muted crossorigin="anonymous" playsinline webkit-playsinline></video>
+                <video id="pre" src="Presentacion.mp4" autoplay loop muted crossorigin="anonymous" playsinline webkit-playsinline></video>
             </a-assets>
-
-            <!-- Reemplazamos el a-box por un a-video, apuntando al id del video -->
-            <!-- Puedes ajustar el width (ancho), height (alto) y rotation (rotación) según necesites -->
-            <a-video src="#miVideo" position="0 0.5 0" rotation="-90 0 0" width="2" height="1.125"></a-video>
+            <a-video src="#pre" position="0 0.5 0" rotation="-90 0 0" width="2" height="1.125"></a-video>
 
             <a-marker-camera type='pattern' url='logo.patt'></a-marker-camera>
             
         </a-scene>
-
-        <!-- Pequeño script para asegurar que el video se reproduzca al tocar la pantalla (requerido por las políticas de los navegadores) -->
         <script>
             window.addEventListener('click', function () {
-                var v = document.querySelector('#miVideo');
+                var v = document.querySelector('#pre');
                 v.play();
             });
         </script>
